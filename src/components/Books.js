@@ -17,7 +17,7 @@ import axios from "axios";
 
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
-let url = "http://localhost:4000/books";
+let url = "https://bookstorebackend12.herokuapp.com/books";
 
 function Books() {
   const [book, setBook] = useState([]);
@@ -35,7 +35,9 @@ function Books() {
   }, []);
 
   const handeleDelete = async (id) => {
-    await axios.delete(`http://localhost:4000/books/delete/${id}`);
+    await axios.delete(
+      `https://bookstorebackend12.herokuapp.com/books/delete/${id}`
+    );
     // console.log(response.data);
     getBooks();
     // book(user);

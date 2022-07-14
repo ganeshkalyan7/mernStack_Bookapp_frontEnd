@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
-let url = "http://localhost:4000/books/create";
+let url = "https://bookstorebackend12.herokuapp.com/books/create";
 
 function Addbooks() {
   const navigate = useNavigate();
@@ -42,10 +42,12 @@ function Addbooks() {
     navigate("/");
 
     setBook({
-      firstname: "",
-      lastname: "",
-      email: "",
-      city: "",
+      bookname: "",
+      author: "",
+      description: "",
+      image: "",
+      price: "",
+      available: "",
     });
   };
   // console.log(updatedbook);

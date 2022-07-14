@@ -24,7 +24,7 @@ function Editbooks() {
   useEffect(() => {
     const getById = async () => {
       let res = await axios.get(
-        `http://localhost:4000/books/getsingleBook/${id}`
+        `https://bookstorebackend12.herokuapp.com/books/getsingleBook/${id}`
       );
       var response = res.data.getData;
       console.log(response);
@@ -35,14 +35,17 @@ function Editbooks() {
 
   const updateData = async (e) => {
     e.preventDefault();
-    var response = await axios.put(`http://localhost:4000/books/update/${id}`, {
-      bookname: String(book.bookname),
-      author: String(book.author),
-      description: String(book.description),
-      image: String(book.image),
-      price: Number(book.price),
-      available: Boolean(checked),
-    });
+    var response = await axios.put(
+      `https://bookstorebackend12.herokuapp.com/books/update/${id}`,
+      {
+        bookname: String(book.bookname),
+        author: String(book.author),
+        description: String(book.description),
+        image: String(book.image),
+        price: Number(book.price),
+        available: Boolean(checked),
+      }
+    );
     var res = response.data.getData;
     setBook(res);
     navigate("/");
