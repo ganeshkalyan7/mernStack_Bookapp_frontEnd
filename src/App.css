@@ -1,16 +1,67 @@
 body{
-  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background-image: url("https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/rm309-adj-14.jpg?w=800&dpr=1&fit=default&crop=default&q=65&vib=3&con=3&usm=15&bg=F4F4F3&ixlib=js-2.2.1&s=114b5874c6a2725f412c10e8d097e0a1");
 }
 #grid{
   background:aliceblue;
-  border-radius: 5%;
-  margin: 30px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+  height: fit-content;
+  border-radius: 20px;
+  box-shadow: 2px 5px lightgray;
 
+
+
+}
+#grid:hover{
+
+  display: inline-block;
+  cursor:pointer;
+ 
 }
 .text{
   color: aliceblue;
   font-weight: bold;
 
+
+}
+.gridcontainer{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  align-items: center;
+  padding: 2px;
+  
+}
+/* .maincontainer{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  padding: -5px;
+  width:fit-content;
+
+} */
+/* .img{
+  max-width:fit-content;
+  height: 200px !important;
+}*/
+.buttons{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around;
+}
+.links{
+  border: none !important;
+  outline: none !important;
+
 }
 
+/* navbar styling */
+/* #navbar{
+  position: sticky;
+  top: 0;
+ background-color: blue !important;
+} */
 

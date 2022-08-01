@@ -8,12 +8,13 @@ import {
   CardActions,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
-import DeleteIcon from "@mui/icons-material/Delete";
+// import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+// import ModeEditIcon from "@mui/icons-material/ModeEdit";
+// import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+// import VisibilityIcon from "@mui/icons-material/Visibility";
 
 // import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/icons-material/Menu';
@@ -27,8 +28,6 @@ function Books() {
     var res = response.data.data;
     setBook(res);
   };
-  // console.log(book);
-  // console.log(id);
 
   useEffect(() => {
     getBooks();
@@ -45,7 +44,7 @@ function Books() {
 
   return (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
+      <nav className="navbar navbar-dark bg-dark" id="navbar">
         <div className="container-fluid">
           <div className="d-flex justify-content-center">
             <h1 className="container-fluid">
@@ -64,56 +63,70 @@ function Books() {
       </nav>
       <br /> <br /> <br />
       <div>
-        <Grid container spacing={4}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 2, sm: 8, md: 12 }}
+        >
           {book.map((val) => {
             return (
               <>
-                <Grid item xs={4} key={val._id}>
-                  <Card sx={{ maxWidth: 345, backgroundColor: "" }} id="grid">
+                <Grid item xs={4} key={val._id} className="gridcontainer">
+                  <Card id="grid">
                     <CardMedia
                       component="img"
                       image={val.image}
                       sx={{ backgroundColor: "black" }}
                       className="img"
+                      height="fit-content"
                     />
 
-                    <CardContent>
+                    <CardContent className="maincontainer">
+                      {/* <img src={val.image} className="img" /> */}
+
                       <Typography gutterBottom variant="h5" component="div">
-                        <h2>
+                        <h3>
                           <b>{val.bookname}</b>
-                        </h2>
+                        </h3>
                       </Typography>
                       <Typography gutterBottom variant="h5" component="div">
                         <h4>
                           <b> BY:{val.author}</b>
                         </h4>
                       </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {val.description}
-                      </Typography>
-                      <Typography variant="body2">
-                        <h3>
-                          <AttachMoneyIcon sx={{ fontSize: 35 }} />
-                          {val.price}
-                        </h3>
-                      </Typography>
                     </CardContent>
-                    <CardActions>
+                    <CardActions className="buttons">
                       <Link to={`/editbook/${val._id}`}>
-                        <Button size="small">
-                          <ModeEditIcon
+                        <Button size="small" variant="contained">
+                          {/* <ModeEditIcon
                             sx={{ fontSize: 50 }}
                             className="button"
-                          />
+                          /> */}
+                          <b>EditBook</b>
                         </Button>
                       </Link>
 
                       <Button
                         size="small"
                         onClick={() => handeleDelete(val._id)}
+                        variant="contained"
                       >
-                        <DeleteIcon sx={{ fontSize: 50 }} />
+                        {/* <DeleteIcon sx={{ fontSize: 50 }} /> */}
+                        <b> DeleteBook </b>
                       </Button>
+                      <Link to={`/viewbook/${val._id}`}>
+                        <Button
+                          size="small"
+                          variant="contained"
+                          className="links"
+                        >
+                          {/* <VisibilityIcon
+                            sx={{ fontSize: 50 }}
+                            className="button"
+                          /> */}
+                          <b> Read Book </b>
+                        </Button>
+                      </Link>
                     </CardActions>
                   </Card>
                 </Grid>

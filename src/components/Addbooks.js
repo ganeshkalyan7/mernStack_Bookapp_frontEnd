@@ -50,7 +50,7 @@ function Addbooks() {
       available: "",
     });
   };
-  // console.log(updatedbook);
+  console.log(updatedbook);
   return (
     <div>
       <form>
